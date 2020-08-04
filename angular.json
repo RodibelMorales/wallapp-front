@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wallApp"
+    }
+  },
+  "defaultProject": "wallApp",
+  "cli": {
+    "analytics": "588313c3-cc88-4690-8b17-e56d0dd3e76d"
+  }
 }
