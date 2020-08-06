@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +127,6 @@
   },
   "defaultProject": "wallApp",
   "cli": {
-    "analytics": "588313c3-cc88-4690-8b17-e56d0dd3e76d"
+    "analytics": false
   }
 }
