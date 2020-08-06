@@ -1,0 +1,10 @@
+#logo-silverlogic{
+    width: 150px;
+}
+#wall-menu-items{
+    display: block !important;
+    float: right !important;
+}
+.nav-item{
+    text-align: right;
+}
