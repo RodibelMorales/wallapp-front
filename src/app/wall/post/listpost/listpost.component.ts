@@ -6,7 +6,7 @@ import { Comment } from 'src/app/models/comment';
 import { PostService } from 'src/app/service/post/post.service';
 import { CommentService } from 'src/app/service/comment/comment.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
-
+import { LoginService } from 'src/app/service/auth/login/login.service';
 @Component({
   selector: 'app-listpost',
   templateUrl: './listpost.component.html',
@@ -28,7 +28,8 @@ export class ListpostComponent implements OnInit {
     private postService:PostService,
     private commentService: CommentService,
     private formBuilder: FormBuilder,
-    private authService:AuthService
+    private authService:AuthService,
+    private loginService:LoginService
   ) {
     this.commentForm=this.createFormGroup();
   }
@@ -54,7 +55,7 @@ export class ListpostComponent implements OnInit {
       comment:data.comment,
       comment_likes:0,
       post_id:postsid,
-      user_id:14
+      user_id:parseInt(this.loginService.getLocalProfileData())
     };
     this.commentService.addComment(this.commentModel).subscribe(
       response=>{
@@ -76,7 +77,7 @@ export class ListpostComponent implements OnInit {
       comment:'',
       comment_likes:0,
       post_id:null,
-      user_id:14
+      user_id:0
     };
   }
   showComments(postId,event){

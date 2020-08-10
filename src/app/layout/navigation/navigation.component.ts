@@ -27,6 +27,7 @@ export class NavigationComponent implements OnInit {
     this.loginService.logout(this.tokenService.get()).subscribe(
       response=>{
         this.tokenService.remove();
+        this.loginService.removeLocalProfile();
         location.reload();
       },
       error=>{

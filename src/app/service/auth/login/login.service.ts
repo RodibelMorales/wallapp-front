@@ -25,12 +25,20 @@ export class LoginService {
     alert("before");
     return this.http.post(this.url+'users/',user);
   }
-
   profileData(token){
     return this.http.get(this.url+'users/me/',{
       headers: new HttpHeaders({
         'Authorization':'Token '+token
       })
     });
+  }
+  setLocalProfileData(id){
+    localStorage.setItem('profileId',id);
+  }
+  getLocalProfileData(){
+    return localStorage.getItem('profileId');
+  }
+  removeLocalProfile(){
+    localStorage.removeItem('profileId');
   }
 }

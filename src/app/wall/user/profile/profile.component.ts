@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
               phone: response['phone'],
               email: response['email']
           }
+          this.loginService.setLocalProfileData(response['id']);
       },
       error=>{
         alert("an error ocurred while load the profile data");
