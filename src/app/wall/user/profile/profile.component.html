@@ -1,1 +1,13 @@
-<p>profile works!</p>
+<div class="card" *ngIf="islogged">
+  <div class="card-body">
+    <div>
+      <img src="assets/images/default-profile.jpg" class="img-fluid rounded-circle">
+    </div>
+    <div class="h5">{{ profile.username }}</div>
+    <div class="h7 text-muted">Fullname : {{ profile.first_name }} {{ profile.last_name }}</div>
+    <div class="h7 text-muted">Phone : {{ profile.phone }}</div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">WallApp</li>
+  </ul>
+</div>

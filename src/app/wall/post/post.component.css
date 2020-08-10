@@ -1,0 +1,13 @@
+.title-make-publish{
+    margin: 0px;
+}
+#post_input{
+    resize: none;
+    height: 50px;
+}
+.card-body-make-publish{
+    padding: 0.90rem;
+}
+.publish-list-container {
+    margin-top: 10px;
+}

@@ -1,1 +1,35 @@
-<p>account works!</p>
+<div class="row justify-content-center">
+    <div class="col-5">
+        <form #new_account="ngForm" (ngSubmit)="createAccount(new_account.value)" [formGroup]="newAccountForm">
+            <div class="form-group">
+                <label>Email</label>
+                <input autofocus type="email" formControlName="email" name="email" [(ngModel)]="userAccount.email" class="form-control" placeholder="Enter email" required>
+                <input type="hidden" formControlName="username" name="username" [(ngModel)]="userAccount.email">
+            </div>
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="first_name" name="first_name" class="form-control" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" formControlName="last_name" name="last_name" class="form-control" placeholder="You last name">
+            </div>
+            <div class="form-group">
+                <label>Phone:</label>
+                <input type="phone" formControlName="phone" name="phone" class="form-control" placeholder="You last name">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" formControlName="re_password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"  [disabled]="!newAccountForm.valid">Create Account</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
-import { PersonFill,BoxArrowInLeft,BoxArrowDownRight } from 'ngx-bootstrap-icons';
+import { PersonFill,BoxArrowInLeft,BoxArrowInRight,
+          Globe,PeopleFill,LockFill,ThreeDotsVertical,
+          HandThumbsUp,ChatDots,Clock } from 'ngx-bootstrap-icons';
 /* Services */
 import { LoginService } from './service/auth/login/login.service';
 import { TokenService } from './service/auth//token/token.service';
@@ -15,30 +17,37 @@ import { BeforeLoginService } from './service/auth/before/before-login.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './wall/post/post.component';
-import { CommentsComponent } from './wall/comments/comments.component';
 import { LoginComponent } from './wall/auth/login/login.component';
 import { AccountComponent } from './wall/auth/account/account.component';
 import { ProfileComponent } from './wall/user/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationComponent } from './layout/navigation/navigation.component';
+import { ListpostComponent } from './wall/post/listpost/listpost.component';
 
 
 /*GLOBAL ICONS */
 const icons={
   PersonFill,
   BoxArrowInLeft,
-  BoxArrowDownRight
+  BoxArrowInRight,
+  Globe,
+  PeopleFill,
+  LockFill,
+  ThreeDotsVertical,
+  HandThumbsUp,
+  ChatDots,
+  Clock
 }
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    CommentsComponent,
     LoginComponent,
     AccountComponent,
     ProfileComponent,
-    NavigationComponent
+    NavigationComponent,
+    ListpostComponent
   ],
   imports: [
     BrowserModule,

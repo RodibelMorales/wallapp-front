@@ -1,1 +1,44 @@
-<p>post works!</p>
+<div class="row">
+  <div class="col-md-3">
+    <app-profile></app-profile>
+  </div>
+  <div class="col-md-6">
+    <div class="form-to-publish-container" *ngIf="islogged">
+        <div class="card gedf-card">
+            <div class="card-header">
+                <p class="title-make-publish">Make a publication</p>
+            </div>
+            <div class="card-body card-body-make-publish">
+                <form #new_posts="ngForm" (ngSubmit)="addPost(new_posts.value)" [formGroup]="postForm">
+                    <div class="form-group">
+                        <label class="sr-only" for="post_input">post</label>
+                        <textarea class="form-control" formControlName="content" required name="content" id="post_input" rows="3" placeholder="What are you thinking?">
+                        </textarea>
+                    </div>
+                    <div class="btn-toolbar justify-content-between">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Post</button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i-bs name="globe"></i-bs>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i-bs name="globe"></i-bs> Public</a>
+                                <a class="dropdown-item" href="#"><i-bs name="people-fill"></i-bs> Friends</a>
+                                <a class="dropdown-item" href="#"><i-bs name="lock-fill"></i-bs> Just me</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="publish-list-container">
+        <app-listpost></app-listpost>    
+    </div>
+  </div>
+  <div class="col-md-3">
+    <app-login></app-login>
+  </div>
+</div>

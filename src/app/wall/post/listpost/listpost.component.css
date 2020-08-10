@@ -1,0 +1,15 @@
+.posts-card{
+    margin-top: 5px;
+}
+.comments-container{
+    padding: 15px;
+}
+.add-comment-container {
+    margin-top: 10px;
+}
+.username-commment{
+    font-size: 1rem;
+}
+.image-profile-comment{
+    width: 30px;
+}

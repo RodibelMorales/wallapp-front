@@ -1,0 +1,71 @@
+<div class="card posts-card" *ngFor="let posts of postsList; let i = index">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="mr-2">
+          <img class="rounded-circle" width="45" src="assets/images/default-profile.jpg" alt="">
+        </div>
+        <div class="ml-2">
+          <div class="h5 m-0">{{ posts.post_owner.first_name }} {{ posts.post_owner.last_name }}</div>
+        </div>
+      </div>
+      <div>
+        <div class="dropdown">
+          <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i-bs name="three-dots-vertical"></i-bs>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+            <div class="h6 dropdown-header">Configuration</div>
+            <a class="dropdown-item" href="#">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="text-muted h7 mb-2">
+        <i-bs name="clock"></i-bs> {{ posts.created_at | date }}
+    </div>
+    <p class="card-text">{{ posts.content }}</p>
+  </div>
+  <div class="card-footer">
+    <a href="#" class="card-link">
+        <i-bs name="hand-thumbs-up"></i-bs> Like
+        <span class="badge badge-pill badge-primary">{{ posts.likes }}</span>
+    </a>
+    <a href class="card-link" (click)="showComments(posts.id,$event)" >
+          <i-bs name="chat-dots"></i-bs> Comment 
+          <span class="badge badge-pill badge-primary">{{ posts.comments.length }}</span>
+    </a>
+  </div>
+  <div class="comments-container" *ngIf="commentContainerToShow==posts.id">
+    <div class="comment-data" id="posts.id">
+        <div class="d-flex flex-row comment-row m-t-0" *ngFor="let comment of posts.comments; let i = index">
+            <div class="p-2">
+                <img src="assets/images/default-profile.jpg" class="rounded-circle image-profile-comment">
+            </div>
+            <div class="comment-text w-100">
+                <h6 class="username-commment">{{ comment.comment_owner.first_name }} {{ comment.comment_owner.last_name }}</h6>
+                    <span class="m-b-15 d-block">{{ comment.comment }}</span>
+                <div class="comment-footer">
+                    <span class="text-muted float-left">
+                        <i-bs name="hand-thumbs-up"></i-bs> Like {{ comment.likes }}
+                    </span> 
+                    <span class="text-muted float-right">{{ comment.created_at | date }}</span> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-comment-container" *ngIf="islogged">
+        <form #new_comment="ngForm" (ngSubmit)="addCommnet(new_comment.value,posts.id)" [formGroup]="commentForm">
+            <div class="input-group">
+                <input class="form-control" formControlName="comment" name="comment" [(ngModel)]='commentModel.comment' type="text" name="content" placeholder="Make a comment..." required>
+                
+                <span class="input-group-btn">
+                  <button class="btn btn-success" type="submit" name="post">Post</button>
+                </span>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
